@@ -39,6 +39,11 @@ void calculate_expenses(Map personMap){
         values.deviance = values.expenses - expense_per_person
     }
 
+    println "Total: " + total_expenses
+    println "Per person: " + expense_per_person
+    personMap.each{ person, values -> print person + " deviance" + ": " + values.deviance + " " }
+    println ""
+
     if(personMap['T'].deviance == 0){
         personMap['T'].to_H = 0
         personMap['T'].to_L = 0
@@ -95,14 +100,22 @@ void calculate_expenses(Map personMap){
     println "L velkaa T:lle " + personMap['L'].to_T + " ja H:lle " +personMap['L'].to_H
 }
 
-println personMapOne
+personMapOne.each{ person, values -> print person + ": " + values.expenses + " " }
+println ""
 calculate_expenses(personMapOne)
+println "-------------------------------------"
 
-println personMapTwo
+personMapTwo.each{ person, values -> print person + ": " + values.expenses + " " }
+println ""
 calculate_expenses(personMapTwo)
+println "-------------------------------------"
 
-println personMapThree
+personMapThree.each{ person, values -> print person + ": " + values.expenses + " " }
+println ""
 calculate_expenses(personMapThree)
+println "-------------------------------------"
 
-println personMapFour
+personMapFour.each{ person, values -> print person + ": " + values.expenses + " " }
+println ""
 calculate_expenses(personMapFour)
+println "-------------------------------------"
